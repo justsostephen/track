@@ -1,0 +1,12 @@
+{% extends "lending/tablet_process.html" %}
+
+{% block title %}Track | Borrow{% endblock %}
+{% block heading %}<h2>Borrow</h2>{% endblock %}
+
+{% block form %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Borrow" />
+    </form>
+{% endblock form %}

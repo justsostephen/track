@@ -1,0 +1,23 @@
+{% extends "lending/base.html" %}
+
+{% block title %}Track | User{% endblock %}
+{% block content %}
+<h2>{{ object.name }}</h2>
+<h3 class="heading_section">History</h3>
+<table>
+    <tr>
+        <th>Time</th>
+        <th>Barcode</th>
+        <th>Name</th>
+        <th>Transaction</th>
+    </tr>
+    {% for entry in history %}
+        <tr>
+            <td>{{ entry.time_stamp }}</td>
+            <td><a href="{% url 'lending:tablet' entry.item.pk %}">{{ entry.item.barcode }}</a></td>
+            <td>{{ entry.item.name }}</td>
+            <td>{{ entry.transaction_type }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

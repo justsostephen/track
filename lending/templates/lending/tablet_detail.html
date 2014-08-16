@@ -1,0 +1,36 @@
+{% extends "lending/tablet_tables.html" %}
+
+{% block title %}Track | Tablet{% endblock %}
+{% block heading %}<h2>{{ object.barcode }}</h2>{% endblock %}
+{% block sub_heading %}<h3 class="heading_section">Details</h3>{% endblock %}
+{% block table_data %}
+    <tr>
+        <td>{{ tablet.barcode }}</td>
+        <td>{{ tablet.name }}</td>
+        <td>{{ tablet.serial }}</td>
+        <td class="mark_true">{% if tablet.tablet_solution %}&middot;{% endif %}</td>
+        <td class="mark_true">{% if tablet.message_manager %}&middot;{% endif %}</td>
+        <td class="mark_true">{% if tablet.honey_hide %}&middot;{% endif %}</td>
+        <td class="mark_true">{% if tablet.firefox %}&middot;{% endif %}</td>
+        <td class="mark_true">{% if tablet.full_screen %}&middot;{% endif %}</td>
+        <td class="mark_true">{% if tablet.join_in %}&middot;{% endif %}</td>
+        <td class="mark_true">{% if tablet.fundraiser %}&middot;{% endif %}</td>
+    </tr>
+{% endblock table_data %}
+{% block history %}
+<h3 class="heading_section">History</h3>
+<table>
+    <tr>
+        <th>Time</th>
+        <th>User</th>
+        <th>Transaction</th>
+    </tr>
+    {% for entry in history %}
+        <tr>
+            <td>{{ entry.time_stamp }}</td>
+            <td><a href="{% url 'lending:user' entry.current_user_pk %}">{{ entry.current_user }}</a></td>
+            <td>{{ entry.transaction_type }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock history %}

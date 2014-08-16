@@ -1,0 +1,12 @@
+{% extends "lending/base.html" %}
+
+{% block title %}Track | Items{% endblock %}
+
+{% block content %}
+<h2>Items</h2>
+<ul>
+    {% for item in item_list %}
+        <li>{{ item.name }} / <a href="{% url 'lending:tablet' item.pk %}">{{ item.barcode }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock content %}

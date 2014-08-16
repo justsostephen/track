@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Track{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'lending/candy.css' %}">
+    <meta name="viewport" content="initial-scale=1">
+</head>
+<body>
+    <header>
+        <h1>Track</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'lending:borrow_item' %}">Borrow</a></li>
+            <li><a href="{% url 'lending:return_item' %}">Return</a></li>
+            <li><a href="{% url 'lending:lent' %}">Lent</a></li>
+            <li><a href="{% url 'lending:tablets' %}">Tablets</a></li>
+            <li><a href="{% url 'lending:users' %}">Users</a></li>
+            <li><a href="{% url 'lending:history' %}">History</a></li>
+            <li><a href="{% url 'lending:submit_bug_feature' %}">Bugs and Features</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

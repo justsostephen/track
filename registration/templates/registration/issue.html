@@ -1,0 +1,18 @@
+{% extends "registration/base.html" %}
+
+{% block title %}Track | Issue{% endblock %}
+
+{% block content %}
+<h2>Issue</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>{{ form.as_table }}</table>
+    <input type="submit" value="Issue" />
+</form>
+{% if issued %}
+    <p>Item <strong>{{ issued.item }}</strong> issued to <strong>{{ issued.delegate }}</strong>.</p>
+{% endif %}
+{% if item_already_issued %}
+    <p>Item already issued.</p>
+{% endif %}
+{% endblock content %}

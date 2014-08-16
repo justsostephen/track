@@ -1,0 +1,41 @@
+{% extends "lending/base.html" %}
+
+{% block content %}
+{% block heading %}{% endblock %}
+{% block form %}{% endblock %}
+{% if user_lent %}
+    <h4><a href="{% url 'lending:user' user_lent.0 %}">{{ user_lent.1 }}</a></h4>
+    {% if user_lent|length > 2 %}
+        <table>
+            <tr>
+                <th>Barcode</th>
+                <th>Model</th>
+                <th>Serial</th>
+                <th class="tablet_software">Tablet Solution 1.6</th>
+                <th class="tablet_software">Message Manager</th>
+                <th class="tablet_software">Honey Hide</th>
+                <th class="tablet_software">Firefox</th>
+                <th class="tablet_software">Full Screen</th>
+                <th class="tablet_software">Join In</th>
+                <th class="tablet_software">Fundraiser 2.4</th>
+            </tr>
+            {% for pk, barcode, name, serial, tablet_solution, message_manager, honey_hide, firefox, full_screen, join_in, fundraiser in user_lent|slice:"2:" %}
+                <tr>
+                    <td><a href="{% url 'lending:tablet' pk %}">{{ barcode }}</a></td>
+                    <td>{{ name }}</td>
+                    <td>{{ serial }}</td>
+                    <td class="mark_true">{% if tablet_solution %}&middot;{% endif %}</td>
+                    <td class="mark_true">{% if message_manager %}&middot;{% endif %}</td>
+                    <td class="mark_true">{% if honey_hide %}&middot;{% endif %}</td>
+                    <td class="mark_true">{% if firefox %}&middot;{% endif %}</td>
+                    <td class="mark_true">{% if full_screen %}&middot;{% endif %}</td>
+                    <td class="mark_true">{% if join_in %}&middot;{% endif %}</td>
+                    <td class="mark_true">{% if fundraiser %}&middot;{% endif %}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No items.</p>
+    {% endif %}
+{% endif %}
+{% endblock content %}

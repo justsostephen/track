@@ -1,0 +1,22 @@
+{% extends "lending/base.html" %}
+
+{% block content %}
+{% block heading %}{% endblock %}
+{% block sub_heading %}{% endblock %}
+<table>
+    <tr>
+        <th>Barcode</th>
+        <th>Model</th>
+        <th>Serial</th>
+        <th class="tablet_software">Tablet Solution 1.6</th>
+        <th class="tablet_software">Message Manager</th>
+        <th class="tablet_software">Honey Hide</th>
+        <th class="tablet_software">Firefox</th>
+        <th class="tablet_software">Full Screen</th>
+        <th class="tablet_software">Join In</th>
+        <th class="tablet_software">Fundraiser 2.4</th>
+    </tr>
+    {% block table_data %}{% endblock %}
+</table>
+{% block history %}{% endblock %}
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "lending/base.html" %}
+
+{% block title %}Track | Users{% endblock %}
+{% block content %}
+<h2>Users</h2>
+<table>
+    <tr>
+        <th>Name</th>
+    </tr>
+    {% for user in user_list %}
+        <tr>
+            <td><a href="{% url 'lending:user' user.pk %}">{{ user.name }}</a></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "lending/base.html" %}
+
+{% block title %}Track | History{% endblock %}
+{% block content %}
+<h2>History</h2>
+<table>
+    <tr>
+        <th>Time</th>
+        <th>Barcode</th>
+        <th>Name</th>
+        <th>User</th>
+        <th>Transaction</th>
+    </tr>
+    {% for entry in history_list %}
+        <tr>
+            <td>{{ entry.time_stamp }}</td>
+            <td><a href="{% url 'lending:tablet' entry.item.pk %}">{{ entry.item.barcode }}</a></td>
+            <td>{{ entry.item.name }}</td>
+            <td><a href="{% url 'lending:user' entry.current_user_pk %}">{{ entry.current_user }}</a></td>
+            <td>{{ entry.transaction_type }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

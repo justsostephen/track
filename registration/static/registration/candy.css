@@ -1,0 +1,121 @@
+html, body, header, footer, nav, a, h1, h2, h3, h4, p, ul, li, table, th, td, form, label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: #fff;
+    color: #444;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 62.5%;
+    max-width: 960px;
+    margin: auto;
+    padding: 24px;
+}
+
+header {
+    border-bottom: 1px solid #444;
+    margin-bottom: 2.4em;
+}
+
+footer {
+    text-align: center;
+    border-top: 1px solid #444;
+    margin-top: 4.8em;
+}
+
+nav {
+    float: left;
+    margin-right: 2.4em;
+}
+
+#content {
+    float: left;
+}
+
+a {
+    color: #0080ff;
+    text-decoration: none;
+}
+
+a:hover, a:focus, a:active {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+    color: #ff8000;
+    font-weight: inherit;
+    /* margin-top: 1em; */
+}
+
+h1 {
+    font-size: 2.8em;
+}
+
+h2 {
+    font-size: 2.2em;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+/*h4 {
+    margin-top: 0;
+}*/
+
+h4, p, li, label {
+    font-size: 1.6em;
+}
+
+p, .heading_section {
+    margin-top: 1em;
+}
+
+.small_text {
+    font-size: 1.4em;
+}
+
+.nested_small_text {
+    font-size: 0.875em;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+table {
+    margin-bottom: 1em;
+}
+
+th, td {
+    padding: 0.5em 0;
+    text-align: left;
+    vertical-align: top;
+    font-weight: inherit;
+}
+
+form {
+    margin: 2.4em 0;
+}
+
+label {
+    margin-right: 0.5em;
+}
+
+input, select, textarea {
+    margin-right: 1em;
+}
+
+textarea {
+    vertical-align: top;
+    max-width: 400px;
+}
+
+#id_accessory {
+/*    display: inline-block;
+    vertical-align: top;*/
+    font-size: 0.625em;
+}

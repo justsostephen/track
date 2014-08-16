@@ -1,0 +1,32 @@
+{% extends "lending/base.html" %}
+
+{% block title %}Track | Bugs and Features{% endblock %}
+
+{% block content %}
+<h2>Bugs and Features</h2>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+
+{% if bug_feature_list %}
+    <table id="bug_feature_table">
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th id="bug_feature_col">Bug/Feature</th>
+            <th>Status</th>
+        </tr>
+        {% for bug_feature in bug_feature_list %}
+            <tr>
+                <td>{{ bug_feature.id }}</td>
+                <td><a href="{% url 'lending:user' bug_feature.user.pk %}">{{ bug_feature.user.name }}</a></td>
+                <td>{{ bug_feature.bug_feature }}</td>
+                <td>{{ bug_feature.status }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+{% endblock content %}

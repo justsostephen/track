@@ -1,0 +1,25 @@
+{% extends "lending/tablet_tables.html" %}
+
+{% block title %}Track | Lent{% endblock %}
+{% block heading %}<h2>Lent</h2>{% endblock %}
+{% block table_data %}
+    {% for item in lent_list %}
+        <tr>
+            <th colspan="10"><a href="{% url 'lending:user' item.0 %}">{{ item.1 }}</a></th>
+        </tr>
+        {% for pk, barcode, name, serial, tablet_solution, message_manager, honey_hide, firefox, full_screen, join_in, fundraiser in item|slice:"2:" %}
+            <tr>
+                <td><a href="{% url 'lending:tablet' pk %}">{{ barcode }}</a></td>
+                <td>{{ name }}</td>
+                <td>{{ serial }}</td>
+                <td class="mark_true">{% if tablet_solution %}&middot;{% endif %}</td>
+                <td class="mark_true">{% if message_manager %}&middot;{% endif %}</td>
+                <td class="mark_true">{% if honey_hide %}&middot;{% endif %}</td>
+                <td class="mark_true">{% if firefox %}&middot;{% endif %}</td>
+                <td class="mark_true">{% if full_screen %}&middot;{% endif %}</td>
+                <td class="mark_true">{% if join_in %}&middot;{% endif %}</td>
+                <td class="mark_true">{% if fundraiser %}&middot;{% endif %}</td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+{% endblock table_data %}

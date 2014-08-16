@@ -1,0 +1,41 @@
+{% extends "lending/tablet_tables.html" %}
+
+{% block title %}Track | Tablets{% endblock %}
+{% block heading %}<h2>Tablets</h2>{% endblock %}
+{% block sub_heading %}<p>In: {{ tablet_list.0.0 }} | Out: {{ tablet_list.0.1 }} | Total: {{ tablet_list.0.2 }}</p>{% endblock %}
+{% block table_data %}
+    <tr>
+        <td class="table_section" colspan="10">In</td>
+    </tr>
+    {% for item in tablet_list.1 %}
+        <tr>
+            <td><a href="{% url 'lending:tablet' item.pk %}">{{ item.barcode }}</a></td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.serial }}</td>
+            <td class="mark_true">{% if item.tablet_solution %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.message_manager %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.honey_hide %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.firefox %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.full_screen %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.join_in %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.fundraiser %}&middot;{% endif %}</td>
+        </tr>
+    {% endfor %}
+    <tr>
+        <td class="table_section" colspan="10">Out</td>
+    </tr>
+    {% for item in tablet_list.2 %}
+        <tr>
+            <td><a href="{% url 'lending:tablet' item.pk %}">{{ item.barcode }}</a></td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.serial }}</td>
+            <td class="mark_true">{% if item.tablet_solution %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.message_manager %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.honey_hide %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.firefox %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.full_screen %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.join_in %}&middot;{% endif %}</td>
+            <td class="mark_true">{% if item.fundraiser %}&middot;{% endif %}</td>
+        </tr>
+    {% endfor %}
+{% endblock table_data %}

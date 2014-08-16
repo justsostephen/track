@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>{% block title %}Track{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'registration/candy.css' %}">
+    <script type="text/javascript" src="{% static 'registration/shortcut.js' %}"></script>
+    <script type="text/javascript">
+        function initKeys() {
+            shortcut.add("alt+i", function() {
+                window.location.href = "{% url 'registration:issue_item' %}";
+            });
+            shortcut.add("alt+r", function() {
+                window.location.href = "{% url 'registration:return_item' %}";
+            });
+        }
+        window.onload = initKeys;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Track</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'registration:issue_item' %}">Issue</a></li>
+            <li><a href="{% url 'registration:return_item' %}">Return</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
